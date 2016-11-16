@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Example elm-github app</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="elm.js"></script>
+  </head>
+  <body>
+  </body>
+  <script type="text/javascript">
+    var app = Elm.Main.fullscreen({
+      githubClientId: "{{ github_client_id }}",
+      {{#github_access_token}}
+      githubAccessToken: "{{ github_access_token }}"
+      {{/github_access_token}}
+      {{^github_access_token}}
+      githubAccessToken: null
+      {{/github_access_token}}
+    });
+  </script>
+</html>
